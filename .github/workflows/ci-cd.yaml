@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-binary:
+  test:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
   build-and-push-container-images:
     runs-on: ubuntu-20.04
     if: github.event_name == 'release' || (github.event_name == 'push' && github.ref_name == 'main') || github.event_name == 'workflow_dispatch'
-    needs: [test-binary, test-checks]
+    needs: test
     permissions:
       contents: read
       packages: write
