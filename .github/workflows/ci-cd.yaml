@@ -67,7 +67,6 @@ jobs:
         with:
           context: .
           push: true
-          target: telemetry
           tags: ${{ env.IMAGE_REPOSITORY }}:${{ env.IMAGE_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
